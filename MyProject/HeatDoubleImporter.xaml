@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfRibbonApplication1.HeatDoubleImporter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HeatDoubleImporter" Height="350" Width="500"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Name="BtnImporter" Content="导入" Click="BtnImporter_Click_1" Grid.Row="0"
+                Width="50" HorizontalAlignment="Left" Margin="5,5,5,5"></Button>
+        <DataGrid Grid.Row="1" AutoGenerateColumns="True" x:Name="ShowImportedData">
+            
+        </DataGrid>
+    </Grid>
+</Window>
