@@ -1,0 +1,220 @@
+﻿
+<ribbon:RibbonWindow x:Class="WpfRibbonApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+        xmlns:local="clr-namespace:WpfRibbonApplication1"
+        Title="My Project"
+		x:Name="RibbonWindow"
+        
+	    Width="1200" Height="700">
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="304*" />
+        </Grid.RowDefinitions>
+        
+        <ribbon:Ribbon x:Name="Ribbon"
+                       Grid.Row="0"
+                       Grid.Column="0">
+            
+            <ribbon:Ribbon.ApplicationMenu>
+                <ribbon:RibbonApplicationMenu SmallImageSource="Images\SmallIcon.png">
+                    <ribbon:RibbonApplicationMenuItem Header="Hello _Ribbon"
+                                                      x:Name="MenuItem1"
+                                                      ImageSource="Images\LargeIcon.png"/>
+                </ribbon:RibbonApplicationMenu>
+
+            </ribbon:Ribbon.ApplicationMenu>
+            <ribbon:RibbonTab x:Name="WorkSpaceTab" 
+                              Header="工作区">
+                <ribbon:RibbonGroup x:Name="WorkSpace" 
+                                    Header="工作区">
+                    <ribbon:RibbonButton x:Name="BuildNewProj"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="新建工程"
+                                         Click="BuildNewProj_Click"/>
+                    <ribbon:RibbonButton x:Name="OpenProj"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="打开工程"
+                                         Click="OpenProjButton_Click"/>
+                </ribbon:RibbonGroup>
+                
+                <ribbon:RibbonGroup x:Name="Models"
+                                    Header="模型">
+                    <ribbon:RibbonButton x:Name="GridModel"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="网络模型" />
+                    <ribbon:RibbonButton x:Name="SolidTranformModel"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="固化变形模型" />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup x:Name="Edit"
+                                    Header="编辑">
+                    <ribbon:RibbonButton x:Name="CopyAction"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="复制" />
+                    <ribbon:RibbonButton x:Name="DeleteAction"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="删除" />
+                    <ribbon:RibbonButton x:Name="ReviseAction"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="修改" />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup x:Name="CoordSys"
+                                    Header="坐标系统">
+                    <ribbon:RibbonButton x:Name="BuildCoord"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="创建坐标系" />
+                    <ribbon:RibbonButton x:Name="LookupCoord"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="查看坐标系" />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup x:Name="SuperFunctions"
+                                    Header="高级功能">
+                    <ribbon:RibbonButton x:Name="UnitSys"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="单位体系" />
+                    <ribbon:RibbonButton x:Name="StatisticInfo"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="统计信息" />
+                    <ribbon:RibbonButton x:Name="CompleteCheck"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="完整性检查" />
+                </ribbon:RibbonGroup>
+                
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="NumericSimulationTab" 
+                              Header="数值模拟">
+                <ribbon:RibbonGroup x:Name="BuildModel"
+                                    Header="建模">
+                    <ribbon:RibbonButton x:Name="ImportModel"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="导入模型"
+                                         Click="ImportModel_Click"/>
+                    <ribbon:RibbonButton x:Name="ImportModelLibrary"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="模型库导入"
+                                         />
+                   
+                    <ribbon:RibbonButton x:Name="MainMaterial"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="主体材料" Height="30"
+                                        />
+                    <ribbon:RibbonButton x:Name="WeldingMaterial"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="焊接材料" Height="30"/>
+                    
+                    <ribbon:RibbonButton x:Name="CoalMaterial"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="焦炭材料" Height="30"/>
+                    <ribbon:RibbonButton x:Name="TempKepperMaterial"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="保温层材料" Height="30"/>
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup x:Name="OilingStatus" Header="工况分析">
+                    <ribbon:RibbonButton x:Name="Oilpreheating"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="油气预热" Height="30"
+                                         Click="WorkingStatusButtonClick"
+                                        />
+                    <ribbon:RibbonButton x:Name="EnterOilandGetCoal"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="进油结焦" Height="30"
+                                         Click="WorkingStatusButtonClick"/>
+
+                    <ribbon:RibbonButton x:Name="BlowWind"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="小大吹汽" Height="30"
+                                         Click="WorkingStatusButtonClick"/>
+                    <ribbon:RibbonButton x:Name="EnterWater"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="给水冷焦" Height="30"
+                                         Click="WorkingStatusButtonClick"/>
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup x:Name="VirtualSensor" Header="虚拟传感器">
+                    <ribbon:RibbonButton x:Name="VirtualHeat"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="虚拟热电偶"
+                                         Click="VirtualHeat_Click_1"
+                                         />
+                    <ribbon:RibbonButton x:Name="VirtualPressure"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="虚拟应力"/>
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="HardwarePortTab" 
+                              Header="硬件接口">
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="SecurityEvaluationTab" 
+                              Header="安全评估">
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="DataBaseTab" 
+                              Header="数据">
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="ToolBoxTab" 
+                              Header="工具箱">
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="HelpInfoTab"
+                              Header="帮助"/>
+        </ribbon:Ribbon>
+        <GridSplitter Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></GridSplitter>
+        
+        <Grid Name="WorkSpaceGlobal" Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Name="WorkSpaceUpperGrid" Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="300"  />
+                </Grid.ColumnDefinitions>
+                <Grid Name="WorkSpaceInfo">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="This is my work"></TextBlock>
+                    <GridSplitter Height="1"></GridSplitter>
+                    <TreeView Grid.Row="1">
+                        <TreeViewItem Header="Fruit">
+                            <TreeViewItem Header="Happy"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Fruit"></TreeViewItem>
+                        <TreeViewItem Header="Fruit"></TreeViewItem>
+                        <TreeViewItem Header="Fruit"></TreeViewItem>
+                    </TreeView>
+                </Grid>
+                <GridSplitter Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></GridSplitter>
+            
+                <Grid Name="WorkSpaceGrid" Grid.Row="1" Grid.Column="1">
+                    <Label Name="Ans"></Label>
+                    <Button Content="3D模型样例" Height="64" HorizontalAlignment="Left" Margin="82,78,0,0" Name="button1" VerticalAlignment="Top" Width="116" Click="button1_Click" />
+                    <Button Content="建立3维点云" Height="64" HorizontalAlignment="Left" Margin="300,78,0,0" x:Name="button1_Copy" VerticalAlignment="Top" Width="116" Click="button1_Copy_Click_1"/>
+                </Grid>
+
+                <GridSplitter Height="5" VerticalAlignment="Stretch"></GridSplitter>
+                
+                <StackPanel Margin="3" Grid.Row="1" Grid.Column="2">
+                    <Label Content="This is the Cloud Picture"></Label>  
+                    <TreeView Name="CloudPicTreeView">
+                        <TreeViewItem Header="1">
+                            <TreeViewItem Header="2"> </TreeViewItem>
+                        </TreeViewItem>
+                    </TreeView>
+                </StackPanel>
+                
+            </Grid>
+            <GridSplitter Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></GridSplitter>
+            <Grid Name="WorkSpaceNoticeGrid" Grid.Row="1" Grid.Column="0">
+                <DataGrid x:Name ="gridNoticeData" AutoGenerateColumns="True">
+                    
+                </DataGrid>
+            </Grid>
+        </Grid>
+      
+    </Grid>
+</ribbon:RibbonWindow>
